@@ -1,15 +1,27 @@
-name = "worker"
-main = "src/index.ts"
-compatibility_date = "2026-07-17"
+name = "cloudflare_temp_email"
+main = "src/worker.ts"
+compatibility_date = "2025-04-01"
+compatibility_flags = [ "nodejs_compat" ]
+keep_vars = true
 
 [build]
 command = ""
+
+[vars]
+PREFIX = "tmp"
+DEFAULT_DOMAINS = ["cwxing.top"]
+DOMAINS = ["cwxing.top"]
+
+JWT_SECRET = "cwxingtempmail2026"
+BLACK_LIST = ""
+
+ADMIN_PASSWORDS = "123456"
+
+ENABLE_USER_CREATE_EMAIL = true
+ENABLE_USER_DELETE_EMAIL = true
+ENABLE_AUTO_REPLY = false
 
 [[d1_databases]]
 binding = "DB"
 database_name = "temp_email_db"
 database_id = "29ed2625-d4e0-4e9f-aa29-b08bf38f02f4"
-
-[vars]
-DOMAINS = "cwxing.top"
-ADMIN_PASSWORDS = "123456"
